@@ -1,0 +1,13 @@
+# Порты на всех IPv4 (0.0.0.0), чтобы работало с любым A-записью DNS и с localhost.
+# HTTPS_PORT / CALLS_HOST_PORT — внешние порты; внутри контейнера nginx:443, Calls:CALLS_HOST_PORT.
+services:
+  nginx:
+    ports:
+      - "${HTTPS_PORT}:443"
+  mattermost:
+    ports:
+      - "${CALLS_HOST_PORT}:18444/udp"
+      - "${CALLS_HOST_PORT}:18444/tcp"
+    environment:
+      - MM_PLUGINSETTINGS_PLUGINSTATES
+      - MM_CALLS_UDP_SERVER_PORT
