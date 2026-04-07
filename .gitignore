@@ -1,8 +1,1 @@
-volumes
-data
-certs
 .env
-docker-compose.override.yaml
-# Let's Encrypt keys and renewal state (локально на сервере)
-letsencrypt/
-letsencrypt-lib/
